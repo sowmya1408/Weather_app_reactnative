@@ -74,7 +74,7 @@ export const Home = ({
           </TouchableHighlight>
         </View>
 
-        {/* {displayAddressInfo && weatherInfo ? (
+        {displayAddressInfo && weatherInfo ? (
           <View style={styles.mainData}>
             <Text style={styles.topText}>{weatherInfo?.name}</Text>
             <Text style={styles.topText}>{currentlocalDate}</Text>
@@ -98,7 +98,7 @@ export const Home = ({
           <Text style={styles.topText}>Hourly</Text>
 
           <Hourly hourlyDetails={hourlyDayForcast} />
-        </View> */}
+        </View>
       </ImageBackground>
       {/* <View style={styles.climateIconsContainer}>
         {description
