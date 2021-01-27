@@ -25,27 +25,24 @@ export const SearchScreen = ({ navigation }: any) => {
   };
 
   return (
-    <SafeAreaView>
-      <Text>Search icon</Text>
-    </SafeAreaView>
-    // <>
-    //   <SafeAreaView style={inputStyles.searchContainer}>
-    //     <TextInput
-    //       style={inputStyles.search}
-    //       onChangeText={(text) => setSearchText(text)}
-    //       placeholder="Enter City/Country Name"
-    //       value={searchText}
-    //     />
-    //     <TouchableHighlight
-    //       activeOpacity={0.6}
-    //       underlayColor="none"
-    //       onPress={handleSubmit}
-    //     >
-    //       <Feather name="search" size={35} color="gray" />
-    //     </TouchableHighlight>
-    //   </SafeAreaView>
-    //   {errorMsg ? <Text>{errorMsg}</Text> : null}
-    // </>
+    <>
+      <SafeAreaView style={inputStyles.searchContainer}>
+        <TextInput
+          style={inputStyles.search}
+          onChangeText={(text) => setSearchText(text)}
+          placeholder="Enter City/Country Name"
+          value={searchText}
+        />
+        <TouchableHighlight
+          activeOpacity={0.6}
+          underlayColor="none"
+          onPress={handleSubmit}
+        >
+          <Feather name="search" size={35} color="gray" />
+        </TouchableHighlight>
+      </SafeAreaView>
+      {errorMsg ? <Text>{errorMsg}</Text> : null}
+    </>
   );
 };
 
