@@ -14,15 +14,14 @@ const HomeStack = createStackNavigator();
 
 const HomeStackScreen = () => {
   return (
-    <HomeScreen />
-    // <HomeStack.Navigator
-    //   screenOptions={{
-    //     headerShown: false,
-    //   }}
-    // >
-    //   <HomeStack.Screen name="Home" component={HomeScreen} />
-    //   <HomeStack.Screen name="Search City" component={SearchScreen} />
-    // </HomeStack.Navigator>
+    <HomeStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Search City" component={SearchScreen} />
+    </HomeStack.Navigator>
   );
 };
 
