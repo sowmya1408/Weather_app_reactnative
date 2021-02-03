@@ -12,27 +12,29 @@ import { currentLocation } from "../context/currentLocationContext";
 import { forecastFor7days } from "../servises/index";
 
 export const WeeklyScreen = () => {
-  // const [weeklyForcast, setWeeklyForcast] = useState(null);
-  // const { lat, lon } = useContext(currentLocation);
+  const [weeklyForcast, setWeeklyForcast] = useState(null);
+  const { lat, lon } = useContext(currentLocation);
 
-  // const getWeatherForWeek = async () => {
-  //   try {
-  //     const weatherDataByCityName = await forecastFor7days(lat, lon);
-  //     setWeeklyForcast(weatherDataByCityName);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getWeatherForWeek();
-  // }, [lat, lon]);
-  // console.log(weeklyForcast);
+  const getWeatherForWeek = async () => {
+    try {
+      const weatherDataByCityName = await forecastFor7days(lat, lon);
+      setWeeklyForcast(weatherDataByCityName);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getWeatherForWeek();
+  }, [lat, lon]);
+  console.log(weeklyForcast);
 
   // const renderItem = ({ item }: any) => {
   //   const milliseconds = item?.dt * 1000;
   //   const date = new Date(milliseconds).toLocaleDateString();
     return (
-      <View><Text>WeeklyScreen</Text></View>
+      <View>
+        <Text>WeeklyScreen</Text>
+      </View>
       // <View style={listStyles.listText}>
       //   <Text style={listStyles.text}>{date}</Text>
       //   <Text>{(item.temp.day - 273).toFixed(0)}</Text>
