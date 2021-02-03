@@ -28,23 +28,20 @@ export const WeeklyScreen = () => {
   }, [lat, lon]);
   console.log(weeklyForcast);
 
-  // const renderItem = ({ item }: any) => {
-  //   const milliseconds = item?.dt * 1000;
-  //   const date = new Date(milliseconds).toLocaleDateString();
+  const renderItem = ({ item }: any) => {
+    const milliseconds = item?.dt * 1000;
+    const date = new Date(milliseconds).toLocaleDateString();
     return (
-      <View>
-        <Text>WeeklyScreen</Text>
+      <View style={listStyles.listText}>
+        <Text style={listStyles.text}>{date}</Text>
+        <Text>{(item.temp.day - 273).toFixed(0)}</Text>
+        <Image
+          style={listStyles.iconImage}
+          source={{
+            uri: `http://openweathermap.org/img/wn/${item?.weather[0]?.icon}@4x.png`,
+          }}
+        />
       </View>
-      // <View style={listStyles.listText}>
-      //   <Text style={listStyles.text}>{date}</Text>
-      //   <Text>{(item.temp.day - 273).toFixed(0)}</Text>
-      //   <Image
-      //     style={listStyles.iconImage}
-      //     source={{
-      //       uri: `http://openweathermap.org/img/wn/${item?.weather[0]?.icon}@4x.png`,
-      //     }}
-      //   />
-      // </View>
     );
   };
   return (
