@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet, Image } from "react-native";
-
+// This is an Hourly component
 export const Hourly = ({ hourlyDetails }: any) => {
   const renderItem = ({ item }: any) => {
     const milliseconds = item?.dt * 1000;
