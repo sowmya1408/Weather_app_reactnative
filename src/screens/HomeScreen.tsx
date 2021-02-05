@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useCallback } from "react";
 import { getWeatherByCityName, forecasthourly } from "../servises/index";
 import { Home } from "../components/Home";
 import { currentLocation } from "../context/currentLocationContext";
-import { View, Text, StyleSheet } from "react-native";
 
 export const HomeScreen = ({ navigation }: any) => {
   const [weatherData, setWeatherData] = useState(null);
@@ -30,28 +29,25 @@ export const HomeScreen = ({ navigation }: any) => {
     getWeatherForCity();
   }, [displayAddress]);
 
-  // const getWeatherHourly = async () => {
-  //   try {
-  //     const hourlyForcast = await forecasthourly(lat, lon);
-  //     setHourlyData(hourlyForcast);
-  //   } catch (err) {
-  //     setInfoError("Please enter valid lat & lon");
-  //   }
-  // };
+  const getWeatherHourly = async () => {
+    try {
+      const hourlyForcast = await forecasthourly(lat, lon);
+      setHourlyData(hourlyForcast);
+    } catch (err) {
+      setInfoError("Please enter valid lat & lon");
+    }
+  };
 
-  // useEffect(() => {
-  //   getWeatherHourly();
-  // }, [lat, lon]);
+  useEffect(() => {
+    getWeatherHourly();
+  }, [lat, lon]);
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
-    // <Home
-    //   weatherInfo={weatherData}
-    //   displayAddressInfo={displayAddress}
-    //   openSearch={openSearch}
-    //   weatherInfoError={infoError}
-    //   hourlyDayForcast={hourlyData}
-    // />
+    <Home
+      weatherInfo={weatherData}
+      displayAddressInfo={displayAddress}
+      openSearch={openSearch}
+      weatherInfoError={infoError}
+      hourlyDayForcast={hourlyData}
+    />
   );
 };
