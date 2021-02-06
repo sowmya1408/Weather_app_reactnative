@@ -94,11 +94,11 @@ export const Home = ({
         ) : (
           <Text style={styles.topText}>Loading...</Text>
         )}
-        {/* <View style={styles.hourlyList}>
+        <View style={styles.hourlyList}>
           <Text style={styles.topText}>Hourly</Text>
 
           <Hourly hourlyDetails={hourlyDayForcast} />
-        </View> */}
+        </View>
       </ImageBackground>
       <View style={styles.climateIconsContainer}>
         {description
