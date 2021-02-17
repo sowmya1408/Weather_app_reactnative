@@ -48,6 +48,7 @@ export default function App() {
         });
         for (let item of addressResponse) {
           setAddress(item);
+          console.log(item);
           let currentAddress = `${item.city}`;
           setDisplayAddress(currentAddress);
           return;
