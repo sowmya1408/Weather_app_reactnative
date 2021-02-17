@@ -3,11 +3,14 @@ import { View, Text, FlatList, StyleSheet, Image } from "react-native";
 // This is an Hourly component
 export const Hourly = ({ hourlyDetails }: any) => {
   const renderItem = ({ item }: any) => {
-    const milliseconds = item?.dt * 1000;
-    const time = new Date(milliseconds).getHours();
+    const milliseconds = new Date((item?.dt + item?.timezone_offset) * 1000);
+    const time = milliseconds.getHours().toString().padStart(2, "0");
+    const other = milliseconds.getMinutes().toString().padStart(2, "0");
     return (
       <View style={listStyles.listText}>
-        <Text style={listStyles.text}>{time}:00</Text>
+        <Text style={listStyles.text}>
+          {time}:{other}
+        </Text>
         <Text style={listStyles.text}>{(item.temp - 273).toFixed(0)}</Text>
         <Image
           style={listStyles.iconImage}
