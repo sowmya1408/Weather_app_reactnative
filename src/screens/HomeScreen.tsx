@@ -10,6 +10,9 @@ export const HomeScreen = ({ navigation }: any) => {
   const { displayAddress, lat, setLat, lon, setLon } = useContext(
     currentLocation
   );
+  console.log(lat);
+  console.log(lon);
+
   const openSearch = useCallback(() => {
     navigation.navigate("Search City");
   }, [displayAddress]);
@@ -32,6 +35,7 @@ export const HomeScreen = ({ navigation }: any) => {
   const getWeatherHourly = async () => {
     try {
       const hourlyForcast = await forecasthourly(lat, lon);
+      console.log(hourlyForcast);
       setHourlyData(hourlyForcast);
     } catch (err) {
       setInfoError("Please enter valid lat & lon");
